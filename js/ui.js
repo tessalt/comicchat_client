@@ -26,18 +26,30 @@ function UI (elements) {
     this.synth.speak(new SpeechSynthesisUtterance('')); // Initialize voices
   }
 
+  this.optionsToggle = document.getElementById('options-toggle');
+  this.optionsContainer = document.getElementById('options');
+
   this.setupShortcuts();
   this.setupNotifications();
+  this.setupUI();
   // this.loadCharacterManifest(); // Character manifest loaded by client first
 }
 
 UI.prototype = {
+  setupUI: function () {
+    this.optionsToggle.addEventListener('click', function (evt) {
+      this.optionsContainer.classList.toggle('show');
+    }.bind(this));
+  },
+
   setConnection: function (connection) {
     this.connection = connection;
   },
 
-  setStatus: function (status) {
+  setStatus: function (status, className) {
     this.status.innerHTML = status;
+    this.status.classList.remove('connected', 'disconnected', 'reconnecting');
+    this.status.classList.add(className);
   },
 
   connected: function () {
@@ -46,18 +58,18 @@ UI.prototype = {
     this.input.placeholder = 'Your nickname...';
     this.input.disabled = false;
     this.roomSwitcher.disabled = false;
-    this.setStatus('Connected.');
+    this.setStatus('Connected.', 'connected');
   },
 
   disconnected: function () {
     this.input.disabled = true;
     this.input.placeholder = 'No connection';
     this.roomSwitcher.disabled = true;
-    this.setStatus('Disconnected.');
+    this.setStatus('Disconnected.', 'disconnected');
   },
 
   reconnecting: function () {
-    this.setStatus('Reconnecting...');
+    this.setStatus('Reconnecting...', 'reconnecting');
   },
 
   setupNotifications: function () {

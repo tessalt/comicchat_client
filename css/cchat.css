@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   font-size: 12px;
   height: 100%;
   margin: 0;
@@ -17,7 +21,7 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem 1rem 6rem 1rem;
-  width: calc(100% - 2rem);
+  width: 100%;
 }
 
 .input-bar {
@@ -35,11 +39,46 @@ p {
 }
 
 .options {
-  display: flex;
-  flex-grow: 0;
-  justify-content: center;
-  align-items: center;
-  margin: 0 1rem 0 1rem;
+  /* display: flex; */
+  /* flex-grow: 0; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin: 0 1rem 0 1rem; */
+  display: none;
+  background: #bfbfbf;
+  border: 2px #ccc outset;
+  box-shadow: -1px -1px 0px 0px #cfcfcf, 1px 1px 0px 0px rgba(0,0,0,1);
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  font-family: Arial, sans-serif;
+}
+
+.options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options li {
+  padding: 10px;
+  border-bottom: 1px solid #848484;
+  border-top: 1px solid #fbfbfb;
+}
+
+.options li:first-child {
+  border-top: none;
+}
+
+.options li:last-child {
+  border-bottom: none;
+}
+
+.options.show {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
 }
 
 .options div, .options input, .options a {
@@ -52,7 +91,7 @@ p {
 
 input[type=text] {
   border: 2px inset #ccc;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: "Comic Sans MS", "Comic Sans", sans-serif;
   padding: 0.5rem;
 }
 
@@ -65,8 +104,8 @@ input[type=text] {
   overflow: hidden;
   margin: 0.5rem;
   padding: 1rem;
-  width: 350px;
-  height: 350px;
+  width: 320px;
+  height: 320px;
   outline: solid 3px #000;
   background-image: url('../res/backgrounds/field.gif');
   background-size: 100% 100%;
@@ -160,4 +199,67 @@ input[type=text] {
   -ms-filter: fliph; /*IE*/
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+.icon-bg {
+  background-repeat: no-repeat;
+  text-indent: -9999px;
+  width: 32px;
+  height: 32px;
+  margin: 6px;
+}
+
+.status {
+  background-image: url('../res/network_disconnected.png');
+}
+
+.status.connected {
+  background-image: url('../res/network_connected.png');
+}
+
+.options-toggle {
+  background-image: url('../res/settings.png');
+  background-color: #bfbfbf;
+  border: 2px #ccc outset;
+  box-shadow: -1px -1px 0px 0px #cfcfcf, 1px 1px 0px 0px rgba(0,0,0,1);
+}
+
+.github-link {
+  background-image: url('../res/executable_script_shortcut.png');
+}
+
+@media screen and (max-width: 768px) {
+  .input-bar {
+    display: block;
+    height: auto;
+  }
+
+  .options-toggle,
+  .status,
+  .github-link {
+    display: block;
+    float: left;
+  }
+
+  #input {
+    width: 100%;
+  }
+
+  .box {
+    width: 100%;
+  }
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+  font-size: 16px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }

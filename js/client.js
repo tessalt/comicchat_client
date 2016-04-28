@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  // var port = process.env.PORT || 5000
   var serverAddress = 'ws://fierce-lowlands-73528.herokuapp.com';
+  // var serverAddress = 'ws://127.0.0.1:8084';
 
   var ui = new UI({
     content:          document.getElementById('content'),

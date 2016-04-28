@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="referrer" content="no-referrer">
   <title>comic chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="./css/cchat.css">
   <link rel="shortcut icon" href="./res/icon.gif" />
 </head>
@@ -18,22 +19,28 @@
       <input type="text" id="input" placeholder="Your nickname" autocomplete="off" autofocus required />
     </form>
 
-    <form id="room-switcher-form">
-        <input type="text" id="room-switcher" title="Switch rooms..." placeholder="Room" required />
-    </form>
+    <button class="icon-bg options-toggle" id="options-toggle">options</button>
+    <div id="status" class="status icon-bg" title="Connection status">Connecting...</div>
+    <a class="github-link icon-bg" href="https://www.github.com/tessalt/comicchat_client" target="_blank" title="GitHub">
+      Github
+    </a>
 
-    <div class="options">
-      <div id="status" class="status" title="Connection status">Connecting...</div>
-
-      <input type="checkbox" name="notify" id="notify" />
-      <label title="Requires Notifications API support." for="notify">Notifications</label>
-
-      <input type="checkbox" name="tts" id="tts" />
-      <label title="Requires Web Speech API support." for="tts">Text-to-speech</label>
-
-      <a href="https://www.github.com/tessalt/comicchat_client" target="_blank" title="GitHub">
-        <img src="res/executable_script_shortcut.gif">
-      </a>
+    <div class="options" id="options">
+      <ul>
+        <li>
+          <form id="room-switcher-form">
+            <input type="text" id="room-switcher" title="Switch rooms..." placeholder="Room" required />
+          </form>
+        </li>
+        <li>
+          <input type="checkbox" name="notify" id="notify" />
+          <label title="Requires Notifications API support." for="notify">Notifications</label>
+        </li>
+        <li>
+          <input type="checkbox" name="tts" id="tts" />
+          <label title="Requires Web Speech API support." for="tts">Text-to-speech</label>
+        </li>
+      </ul>
     </div>
   </div>
 
